@@ -4,5 +4,9 @@
  * @returns {number}
  */
 function factorial(n) {
-  // ваш код...
-}
+  let x = 1;
+  for (let i = 2; i <= n; i++)
+  x = x * i;
+  return x;    
+}          
+alert("Факториал равен " + factorial(prompt("Введите число", "Любое число")),);
