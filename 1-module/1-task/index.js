@@ -9,4 +9,3 @@ function factorial(n) {
   x = x * i;
   return x;    
 }          
-alert("Факториал равен " + factorial(prompt("Введите число", "Любое число")),);
