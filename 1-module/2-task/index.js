@@ -12,13 +12,7 @@ function print(text) {
  * @returns {boolean}
  */
 function isValid(name) {
-  let x;
-  if (name === null || name.length < 4 || ~name.indexOf(" ")) {
-    x = false;
-  }else{
-    x = true;
-  }  
-  return x;
+  return (name !== null && name.length >= 4 && !name.includes(" "));
 }
 
 function sayHello() {
