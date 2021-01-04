@@ -5,13 +5,11 @@
  * @returns {string}
  */
 function truncate(str, maxlength) {
-  let truncateString;
+  let truncateString = str;
 
   if (str.length > maxlength) {
     truncateString = str.slice(0, maxlength - 1) + '…';
-  } else {
-    truncateString = str;
-  }
+  } 
 
   return truncateString;
 }

@@ -8,9 +8,7 @@ function sumSalary(salaries) {
   
   for (const key in salaries) { 
     if (typeof salaries[key] === 'number' &&
-        !Number.isNaN(salaries[key]) &&
-        salaries[key] !== Infinity &&
-        salaries[key] !== -Infinity
+        Number.isFinite(salaries[key])
         ) {
       sum += salaries[key];
     }    
