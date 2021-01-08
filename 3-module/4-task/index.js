@@ -5,13 +5,8 @@
  * @returns {string}
  */
 function showSalary(users, age) {
-  const mapShowSalary = users.map((user) => {
-
-    if (user.age <= age)
-      return `${user.name}, ${user.balance}`;
-
-  });
-  const filterShowSalary = mapShowSalary.filter((user) => user !== undefined);
-  return filterShowSalary.join('\n');
+  return users.map((user) => user.age <= age ? `${user.name}, ${user.balance}` : undefined)
+    .filter((user) => user !== undefined)
+    .join('\n');
 }
 

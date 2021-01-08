@@ -4,14 +4,12 @@
  * @returns {{min:number, max:number}}  объект
  */
 function getMinMax(str) {
-  const transformGetMinMax = str.split(/[,\s]+/)                           
-                            .map(parseFloat)
-                            .filter ((item) => !isNaN(item));  
-  const mathGetMin = Math.min(...transformGetMinMax);
-  const mathGetMax = Math.max(...transformGetMinMax);
-  let objMinMax = {
-    min: mathGetMin,
-    max: mathGetMax,
+  const TRANSFORM_RE = /[,\s]+/;
+  const transformGetMinMax = str.split(TRANSFORM_RE)
+    .map(parseFloat)
+    .filter((item) => !isNaN(item));
+  return objMinMax = {
+    min: Math.min(...transformGetMinMax),
+    max: Math.max(...transformGetMinMax),
   };
-  return objMinMax;
 }
