@@ -3,8 +3,7 @@
  * @param {Element} table
  */
 function highlight(table) {
-    let tr = table.querySelectorAll("tbody tr");
-    console.log(tr);
+    let tr = table.querySelectorAll("tbody tr");   
 
     for (let i = 0; i < tr.length; i++) {
 
