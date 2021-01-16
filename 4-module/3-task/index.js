@@ -3,28 +3,31 @@
  * @param {Element} table
  */
 function highlight(table) {
-    let tr = table.querySelectorAll("tbody tr");   
+    const tr = table.querySelectorAll("tbody tr");
+    const age = 1;
+    const gender = 2;
+    const status = 3;
+    const maxAge = 18;
 
-    for (let i = 0; i < tr.length; i++) {
+    tr.forEach(function (item) {
 
-        if (tr[i].cells[3].getAttribute('data-available') == "true") {
-            tr[i].classList.add("available");
-        } else if (tr[i].cells[3].getAttribute('data-available') == "false") {
-            tr[i].classList.add("unavailable");
+        if (item.cells[status].getAttribute('data-available') == "true") {
+            item.classList.add("available");
+        } else if (item.cells[status].getAttribute('data-available') == "false") {
+            item.classList.add("unavailable");
         } else {
-            tr[i].setAttribute('hidden', true);
+            item.setAttribute('hidden', true);
         }
 
-        if (tr[i].cells[2].innerHTML == "m") {
-            tr[i].classList.add("male");
+        if (item.cells[gender].innerHTML == "m") {
+            item.classList.add("male");
         } else {
-            tr[i].classList.add("female");
+            item.classList.add("female");
         }
 
-        if (tr[i].cells[1].innerHTML < 18) {
-            tr[i].style.textDecoration = "line-through";
+        if (item.cells[age].innerHTML < maxAge) {
+            item.style.textDecoration = "line-through";
         }
-    }
-
+    })
 
 }
