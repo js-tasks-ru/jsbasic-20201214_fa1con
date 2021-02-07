@@ -4,11 +4,7 @@ function toggleText() {
 
   button.addEventListener('click', () => {
 
-    if (text.hidden == false) {
-      text.hidden = true;
-    } else {
-      text.hidden = false;
-    }
-
+   text.hidden = !text.hidden;  
+   
   });
 }

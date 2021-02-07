@@ -50,35 +50,48 @@ export default class UserTable {
     return thead;
   }
 
-  createButton(){
-    let button = document.createElement('button');    
-      button.textContent = 'X';
-      button.onclick = () => button.parentElement.parentElement.remove();
+  createButton() {
+    let button = document.createElement('button');
+    button.textContent = 'X';
+    button.onclick = () => button.parentElement.parentElement.remove();
     return button;
+  }
+
+  createTd(textContent) {
+    let td = document.createElement('td');
+    td.textContent = textContent;
+    return td;
+  }
+
+  createTr(arrTd) {
+    let tr = document.createElement('tr');
+    tr.append(...arrTd);
+    return tr;
+  }
+
+  createRow(item) {
+    let arrTd = [];
+
+    for (let textContent of Object.values(item)) {
+      arrTd.push(this.createTd(textContent));
+    }
+
+    let td = this.createTd();
+    td.append(this.createButton());
+    arrTd.push(td);
+    return arrTd;
   }
 
   createTbody(rows) {
     let tbody = document.createElement('tbody');
-    let that = this;
 
-    rows.forEach(function (item) {
-      let tr = document.createElement('tr');
-      tbody.append(tr);
+    for (let item of rows) {
+      tbody.append(this.createTr(this.createRow(item)));
+    }
 
-      Object.values(item).forEach(function (value) {
-        let td = document.createElement('td');
-        tr.append(td);
-        td.textContent = value;
-      });
-      
-      let td = document.createElement('td');
-      tr.append(td);
-      td.append(that.createButton());
-      
-    });
     return tbody;
   }
-  
+
   createUserTable(rows) {
     let table = document.createElement('table');
     table.append(this.createThead(Object.keys(rows[0]).length + 1));
